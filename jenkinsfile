@@ -16,9 +16,11 @@ pipeline {
 
         stage('Docker Check') {
             steps {
-                 
+
                     sh 'echo $PATH'
-                    sh 'which docker || true'
+                    sh 'which docker'
+                    sh '$(which docker) --version'
+
                      }
                 }
         
