@@ -32,7 +32,7 @@ environment {
         stage('Build') {
             steps {
                 echo 'Building application'
-                echo 'SCM polling check'
+                echo 'Poll SCM check'
             }
         }
 
