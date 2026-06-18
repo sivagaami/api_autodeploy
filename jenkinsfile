@@ -8,6 +8,21 @@ pipeline {
                 echo 'Code cloned from GitHub'
             }
         }
+        stage('Git Check') {
+            steps {
+                sh 'git --version'
+            }
+        }
+
+        stage('Docker Check') {
+            steps {
+                 steps {
+                    sh 'echo $PATH'
+                    sh 'which docker || true'
+                     }
+                }
+            }
+        
 
         stage('Build') {
             steps {
