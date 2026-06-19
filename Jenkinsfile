@@ -27,8 +27,6 @@ environment {
 
                      }
                 }
-        
-
         stage('Build') {
             steps {
                 echo 'Building application'
