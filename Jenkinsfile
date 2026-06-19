@@ -25,11 +25,10 @@ environment {
 
         stage('Run Container') {
             steps {
-                sh '''
-                docker run -d \
-                  --name DevopsFirstApi-container \
-                  -p 3000:3000 \
-                  DevopsFirstApi:latest
-                '''
+                sh '
+                docker run -d --name DevopsFirstApi-container -p 3000:3000 DevopsFirstApi:latest
+                '
             }
         }
+    }
+}        
