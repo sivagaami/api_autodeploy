@@ -1,5 +1,8 @@
 pipeline {
     agent any
+environment {
+        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    }
 
     stages {
 
@@ -16,13 +19,18 @@ pipeline {
 
         stage('Docker Check') {
             steps {
-                sh 'docker --version'
-            }
-        }
 
+                    sh 'echo $PATH'
+                    sh 'whoami'
+                    sh 'which docker'
+                    sh '$(which docker) --version'
+
+                     }
+                }
         stage('Build') {
             steps {
                 echo 'Building application'
+                echo 'Poll SCM check'
             }
         }
 
