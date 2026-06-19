@@ -17,28 +17,19 @@ environment {
             }
         }
 
-        stage('Docker Check') {
+       stage('Docker Build') {
             steps {
-
-                    sh 'echo $PATH'
-                    sh 'whoami'
-                    sh 'which docker'
-                    sh '$(which docker) --version'
-
-                     }
-                }
-        stage('Build') {
-            steps {
-                echo 'Building application'
-                echo 'Poll SCM check'
+                sh 'docker build -t DevopsFirstApi:latest .'
             }
         }
 
-        stage('Test') {
+        stage('Run Container') {
             steps {
-                echo 'Running tests'
+                sh '''
+                docker run -d \
+                  --name DevopsFirstApi-container \
+                  -p 3000:3000 \
+                  DevopsFirstApi:latest
+                '''
             }
         }
-
-    }
-}
