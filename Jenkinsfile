@@ -19,13 +19,13 @@ environment {
 
        stage('Docker Build') {
             steps {
-                sh 'docker build -t DevopsFirstApi:latest .'
+                sh 'docker build -t devopsfirstapi:latest .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d --name DevopsFirstApi-container -p 3000:3000 DevopsFirstApi:latest'
+                sh 'docker run -d --name devopsfirstapi-container -p 3000:3000 devopsfirstapi:latest'
             }
         }
     }
