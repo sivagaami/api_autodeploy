@@ -25,7 +25,7 @@ environment {
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d --name devopsfirstapi-container -p 3000:3000 devopsfirstapi:latest'
+                sh 'docker run -d --name devopsfirstapi-container -p 3000:8080 devopsfirstapi:latest'
             }
         }
     }
